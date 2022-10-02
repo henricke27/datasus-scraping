@@ -1,0 +1,6 @@
+br\edu\ifpi\datasusscraping\client\Municipio.class
+br\edu\ifpi\datasusscraping\entity\Equipamento.class
+br\edu\ifpi\datasusscraping\DatasusScrapingApplication.class
+br\edu\ifpi\datasusscraping\controller\EquipamentoController.class
+br\edu\ifpi\datasusscraping\client\DataSUS.class
+br\edu\ifpi\datasusscraping\service\EquipamentoService.class
