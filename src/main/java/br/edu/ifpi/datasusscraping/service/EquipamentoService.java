@@ -1,23 +1,22 @@
 package br.edu.ifpi.datasusscraping.service;
 
-import br.edu.ifpi.datasusscraping.client.DataSUS;
-import br.edu.ifpi.datasusscraping.client.Municipio;
-import br.edu.ifpi.datasusscraping.entity.Equipamento;
+import br.edu.ifpi.datasusscraping.domain.Equipamento;
+import br.edu.ifpi.datasusscraping.repository.EquipamentoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 public class EquipamentoService {
 
-    private final DataSUS DataSUS;
-    
-    public List<Equipamento> scrape(String nomeMunicipio){
-        Municipio municipio = Municipio.valueOf(nomeMunicipio.toUpperCase());
-        return DataSUS.scrape(municipio.getValor());
+    private final EquipamentoRepository equipamentoRepository;
+
+    @Transactional(rollbackFor = Exception.class)
+    public Equipamento save(Equipamento equipamento){
+        return equipamentoRepository.save(equipamento);
     }
 
 }
